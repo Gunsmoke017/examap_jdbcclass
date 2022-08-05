@@ -14,7 +14,6 @@ public class View {
     Student student;
     public void menu(){
 
-
         System.out.println("==================================================");
         System.out.println("                    >> Student <<                 ");
         System.out.println("==================================================");
@@ -42,8 +41,13 @@ public class View {
                 studentMethods.retrieveStudent(student.getEmail());
                 break;
             case 3:
-                System.out.println();
-//                studentMethods.updateStudent()
+                System.out.println("Enter student email");
+                student.setEmail(b.nextLine());
+                System.out.println("Enter student firstname");
+                student.setFirstname(b.nextLine());
+                System.out.println("Enter student lastname");
+                student.setLastname(b.nextLine());
+                studentMethods.updateStudent(student);
                 break;
             case 4:
                 System.out.println("Enter the student email");
