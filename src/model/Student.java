@@ -20,12 +20,12 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "email='" + email + '\'' +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", dob='" + dob + '\'' +
-                ", phoneNumber=" + phoneNumber +
+        return "Student{\n" +
+                "email='" + email +"\n"+ '\'' +
+                ", firstname='" + firstname +"\n"+ '\'' +
+                ", lastname='" + lastname +"\n"+ '\'' +
+                ", dob='" + dob +"\n"+ '\'' +
+                ", phoneNumber=" + phoneNumber +"\n"+
                 '}';
     }
 

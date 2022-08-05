@@ -9,12 +9,11 @@ public class View {
     Scanner a = new Scanner(System.in).useDelimiter("\n");
     Scanner b = new Scanner(System.in).useDelimiter("\n");
     int choice =0;
-    String email;
+
     StudentMethods studentMethods = new StudentMethods();
     Student student = new Student();
     public void menu(){
         do {
-//
         System.out.println("==================================================");
         System.out.println("                    >> Student <<                 ");
         System.out.println("==================================================");
@@ -25,7 +24,6 @@ public class View {
         switch (choice){
             case 1:
                 System.out.println("  >>  Enter student email");
-//                email = ;
                 student.setEmail(b.next());
                 System.out.println("  >>  Enter student firstname");
                 student.setFirstname(b.next());
@@ -54,7 +52,8 @@ public class View {
             case 4:
                 System.out.println("  >>  Enter the student email");
                 student.setEmail( b.next());
-                System.out.println(studentMethods.deleteStudent(student.getEmail()));
+                System.out.println("  >>  Do you wish to delete student with email " + student.getEmail()+" ?\n  >>  Y/N" );
+                System.out.println(studentMethods.deleteStudent(student.getEmail(), b.next()));
                 break;
             case 5:
                 System.out.println(" >>  Goodbye");
@@ -62,7 +61,6 @@ public class View {
             default:
                 System.out.println("  >>  Enter valid option");
         }
-//
         } while(choice != 5);
     }
 }

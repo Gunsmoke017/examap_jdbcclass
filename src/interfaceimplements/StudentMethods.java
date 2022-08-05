@@ -32,10 +32,10 @@ public class StudentMethods implements IStudentMethods {
                 upd = pr.executeUpdate();
 
                 if(upd == 0){
-                    System.out.println("Student not inserted");
+                    System.out.println("  >>  Student not inserted");
                     return  false;
                 } else{
-                    System.out.println("Student inserted successfully");
+                    System.out.println("  >>  Student inserted successfully");
                 }
 
             } catch (SQLException e){
@@ -66,13 +66,13 @@ public class StudentMethods implements IStudentMethods {
 
                     int upd = ps.executeUpdate();
                     if(upd == 0){
-                        status = "Update failed";
+                        status = "  >>  Update failed";
                         return status;
                     } else {
-                        status = "Update completed";
+                        status = "  >>  Update completed";
                     }
                 }
-                status = "Record not found";
+                status = "  >>  Record not found";
             } catch (SQLException e){
                 e.printStackTrace();
             }
@@ -104,20 +104,26 @@ public class StudentMethods implements IStudentMethods {
     }
 
     @Override
-    public String deleteStudent(String email) {
+    public String deleteStudent(String email,String confirm) {
         String status ="";
-        int upd;
+
+        int upd =0;
         String DELETE_STUDENT = "DELETE FROM student WHERE email = ?";
         if(examAppConnection.connectToDatabase()){
             try{
             pr = examAppConnection.getConnections().prepareStatement(DELETE_STUDENT);
             pr.setString(1,email);
+            if(confirm.equalsIgnoreCase("y")){
             upd = pr.executeUpdate();
+            } else {
+                System.out.println("  >>  Operation aborted");
+            }
+
             if(upd == 0){
-                status ="Deletion not successful";
+                status ="  >>  Deletion not successful";
                 return status;
             } else {
-                status="Student deleted successfully";
+                status="  >>  Student deleted successfully";
             }
             } catch (SQLException e){
                 e.printStackTrace();
