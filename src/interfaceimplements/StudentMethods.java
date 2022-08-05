@@ -76,6 +76,24 @@ public class StudentMethods implements IStudentMethods {
 
     @Override
     public String deleteStudent(String email) {
-        return "";
+        String status ="";
+        int upd;
+        String DELETE_STUDENT = "DELETE FROM student WHERE email = ?";
+        if(examAppConnection.connectToDatabase()){
+            try{
+            pr = examAppConnection.getConnections().prepareStatement(DELETE_STUDENT);
+            pr.setString(1,email);
+            upd = pr.executeUpdate();
+            if(upd == 0){
+                status ="Deletion not successful";
+                return status;
+            } else {
+                status="Student deleted successfully";
+            }
+            } catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+        return status;
     }
 }
