@@ -1,8 +1,10 @@
 package interfaces;
 
+import model.Student;
+
 public interface IStudentMethods {
-    public void registerStudent();
-    public void updateStudent();
-    public void retrieveStudent();
-    public void deleteStudent();
+    public boolean registerStudent(Student student);
+    public String updateStudent(Student student);
+    public Student retrieveStudent(String email);
+    public String deleteStudent(String email);
 }
