@@ -19,7 +19,7 @@ public class View {
         System.out.println("                    >> Student <<                 ");
         System.out.println("==================================================");
         System.out.println();
-        System.out.println("Enter an operation \n >> (1) Register student\n >> (2) View student by email" +
+        System.out.println("  >>  Enter an operation  <<   \n >> (1) Register student\n >> (2) View student by email" +
                 "\n >> (3) Update student by email\n >> (4) Delete student by email\n >> (5) Exit");
         choice = a.nextInt();
         switch (choice){
@@ -35,7 +35,7 @@ public class View {
                 student.setDob(b.next());
                 System.out.println("  >>  Enter student phone number");
                 student.setPhoneNumber(a.nextLong());
-                studentMethods.registerStudent(student);
+                System.out.println(studentMethods.registerStudent(student));
                 break;
             case 2:
                 System.out.println("  >>  Enter student email: ");
@@ -43,18 +43,18 @@ public class View {
                 System.out.println(studentMethods.retrieveStudent(student.getEmail()));
                 break;
             case 3:
-                System.out.println("Enter student email");
+                System.out.println("  >>  Enter student email");
                 student.setEmail(b.next());
-                System.out.println("Enter student firstname");
+                System.out.println("  >>  Enter student firstname");
                 student.setFirstname(b.next());
-                System.out.println("Enter student lastname");
+                System.out.println("  >>  Enter student lastname");
                 student.setLastname(b.next());
-                studentMethods.updateStudent(student);
+                System.out.println(studentMethods.updateStudent(student));
                 break;
             case 4:
-                System.out.println("Enter the student email");
+                System.out.println("  >>  Enter the student email");
                 student.setEmail( b.next());
-                studentMethods.deleteStudent(student.getEmail());
+                System.out.println(studentMethods.deleteStudent(student.getEmail()));
                 break;
             case 5:
                 System.out.println(" >>  Goodbye");
