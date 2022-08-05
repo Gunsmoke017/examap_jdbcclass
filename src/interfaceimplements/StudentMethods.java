@@ -81,7 +81,7 @@ public class StudentMethods implements IStudentMethods {
     }
 
     @Override
-    public Student retrieveStudent(String email) {
+    public String retrieveStudent(String email) {
         Student student = new Student();
         if(examAppConnection.connectToDatabase()){
             String DISPLAY_ALL = "SELECT * FROM student WHERE email = ?";
@@ -100,7 +100,7 @@ public class StudentMethods implements IStudentMethods {
                 e.printStackTrace();
             }
         }
-    return student;
+    return student.toString();
     }
 
     @Override

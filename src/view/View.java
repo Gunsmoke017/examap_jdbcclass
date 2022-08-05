@@ -13,7 +13,8 @@ public class View {
     StudentMethods studentMethods = new StudentMethods();
     Student student;
     public void menu(){
-
+        do {
+//
         System.out.println("==================================================");
         System.out.println("                    >> Student <<                 ");
         System.out.println("==================================================");
@@ -60,5 +61,7 @@ public class View {
             default:
                 System.out.println("Enter valid option");
         }
+//
+        } while(choice != 5);
     }
 }
