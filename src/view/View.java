@@ -6,12 +6,12 @@ import model.Student;
 import java.util.Scanner;
 
 public class View {
-    Scanner a = new Scanner(System.in);
-    Scanner b = new Scanner(System.in);
+    Scanner a = new Scanner(System.in).useDelimiter("\n");
+    Scanner b = new Scanner(System.in).useDelimiter("\n");
     int choice =0;
     String email;
     StudentMethods studentMethods = new StudentMethods();
-    Student student;
+    Student student = new Student();
     public void menu(){
         do {
 //
@@ -25,41 +25,42 @@ public class View {
         switch (choice){
             case 1:
                 System.out.println("  >>  Enter student email");
-                student.setEmail(b.nextLine());
+//                email = ;
+                student.setEmail(b.next());
                 System.out.println("  >>  Enter student firstname");
-                student.setFirstname(b.nextLine());
+                student.setFirstname(b.next());
                 System.out.println("  >>  Enter student lastname");
-                student.setLastname(b.nextLine());
+                student.setLastname(b.next());
                 System.out.println("  >>  Enter student date of birth");
-                student.setDob(b.nextLine());
+                student.setDob(b.next());
                 System.out.println("  >>  Enter student phone number");
                 student.setPhoneNumber(a.nextLong());
                 studentMethods.registerStudent(student);
                 break;
             case 2:
                 System.out.println("  >>  Enter student email: ");
-                student.setEmail( b.nextLine());
-                studentMethods.retrieveStudent(student.getEmail());
+                student.setEmail( b.next());
+                System.out.println(studentMethods.retrieveStudent(student.getEmail()));
                 break;
             case 3:
                 System.out.println("Enter student email");
-                student.setEmail(b.nextLine());
+                student.setEmail(b.next());
                 System.out.println("Enter student firstname");
-                student.setFirstname(b.nextLine());
+                student.setFirstname(b.next());
                 System.out.println("Enter student lastname");
-                student.setLastname(b.nextLine());
+                student.setLastname(b.next());
                 studentMethods.updateStudent(student);
                 break;
             case 4:
                 System.out.println("Enter the student email");
-                student.setEmail( b.nextLine());
+                student.setEmail( b.next());
                 studentMethods.deleteStudent(student.getEmail());
                 break;
             case 5:
                 System.out.println(" >>  Goodbye");
                 break;
             default:
-                System.out.println("Enter valid option");
+                System.out.println("  >>  Enter valid option");
         }
 //
         } while(choice != 5);

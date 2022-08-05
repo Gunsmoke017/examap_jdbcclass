@@ -61,7 +61,7 @@ public class StudentMethods implements IStudentMethods {
                 if(res.next()){
                     ps = examAppConnection.getConnections().prepareStatement(UPDATE);
                     ps.setString(1, student.getFirstname());
-                    ps.setString(1,student.getLastname());
+                    ps.setString(2,student.getLastname());
                     ps.setString(3,student.getEmail());
 
                     int upd = ps.executeUpdate();
