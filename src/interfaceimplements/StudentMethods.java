@@ -47,7 +47,37 @@ public class StudentMethods implements IStudentMethods {
 
     @Override
     public String updateStudent(Student student) {
-    return  "";
+        PreparedStatement ps;
+
+        String UPDATE =  "UPDATE student SET firstname =?, lastname = ? WHERE email = ?";
+        String SEARCH = "SELECT * FROM student WHERE email = ?";
+        String status = "";
+
+        if (examAppConnection.connectToDatabase()){
+            try{
+                pr = examAppConnection.getConnections().prepareStatement(SEARCH);
+                pr.setString(1 ,student.getEmail());
+                res = pr.executeQuery();
+                if(res.next()){
+                    ps = examAppConnection.getConnections().prepareStatement(UPDATE);
+                    ps.setString(1, student.getFirstname());
+                    ps.setString(1,student.getLastname());
+                    ps.setString(3,student.getEmail());
+
+                    int upd = ps.executeUpdate();
+                    if(upd == 0){
+                        status = "Update failed";
+                        return status;
+                    } else {
+                        status = "Update completed";
+                    }
+                }
+                status = "Record not found";
+            } catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+    return  status;
     }
 
     @Override
@@ -56,7 +86,6 @@ public class StudentMethods implements IStudentMethods {
         if(examAppConnection.connectToDatabase()){
             String DISPLAY_ALL = "SELECT * FROM student WHERE email = ?";
             try{
-
                 pr = examAppConnection.getConnections().prepareStatement(DISPLAY_ALL);
                 pr.setString(1,email);
                 res = pr.executeQuery();

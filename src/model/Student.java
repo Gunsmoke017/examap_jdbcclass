@@ -7,6 +7,28 @@ public class Student {
     private String dob;
     private long phoneNumber;
 
+    public Student() {
+    }
+
+    public Student(String email, String firstname, String lastname, String dob, long phoneNumber) {
+        this.email = email;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.dob = dob;
+        this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "email='" + email + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", dob='" + dob + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                '}';
+    }
+
     public String getEmail() {
         return email;
     }
