@@ -18,7 +18,7 @@ public class StudentMethods implements IStudentMethods {
     @Override
     public boolean registerStudent(Student student) {
         boolean status = false;
-        int upd;
+        int upd ;
         String INSERT = "INSERT INTO student (email, firstname, lastname, dob, phone_no) VALUES (?,?,?,?,?)";
         if(examAppConnection.connectToDatabase()){
             try{
@@ -53,6 +53,24 @@ public class StudentMethods implements IStudentMethods {
     @Override
     public Student retrieveStudent(String email) {
         Student student = new Student();
+        if(examAppConnection.connectToDatabase()){
+            String DISPLAY_ALL = "SELECT * FROM student WHERE email = ?";
+            try{
+
+                pr = examAppConnection.getConnections().prepareStatement(DISPLAY_ALL);
+                pr.setString(1,email);
+                res = pr.executeQuery();
+                if(res.next()){
+                    student.setEmail(res.getString("email"));
+                    student.setFirstname(res.getString("firstname"));
+                    student.setLastname(res.getString("lastname"));
+                    student.setDob(res.getString("dob"));
+                    student.setPhoneNumber(res.getLong("phone_no"));
+                }
+            } catch (SQLException e ){
+                e.printStackTrace();
+            }
+        }
     return student;
     }
 
