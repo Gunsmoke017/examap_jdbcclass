@@ -11,7 +11,7 @@ public class View {
     int choice =0;
     String email;
     StudentMethods studentMethods = new StudentMethods();
-    Student student = new Student();
+    Student student;
     public void menu(){
 
 
@@ -24,7 +24,17 @@ public class View {
         choice = a.nextInt();
         switch (choice){
             case 1:
-//                studentMethods.registerStudent()
+                System.out.println("  >>  Enter student email");
+                student.setEmail(b.nextLine());
+                System.out.println("  >>  Enter student firstname");
+                student.setFirstname(b.nextLine());
+                System.out.println("  >>  Enter student lastname");
+                student.setLastname(b.nextLine());
+                System.out.println("  >>  Enter student date of birth");
+                student.setDob(b.nextLine());
+                System.out.println("  >>  Enter student phone number");
+                student.setPhoneNumber(a.nextLong());
+                studentMethods.registerStudent(student);
                 break;
             case 2:
                 System.out.println("  >>  Enter student email: ");
@@ -32,6 +42,7 @@ public class View {
                 studentMethods.retrieveStudent(student.getEmail());
                 break;
             case 3:
+                System.out.println();
 //                studentMethods.updateStudent()
                 break;
             case 4:
