@@ -82,10 +82,22 @@ public class View {
             System.out.println("  >>  (1) Enter result\n  >>  (2) View result\n  >>  (3) Back to main menu");
             switch (choice){
                 case 1:
-
+                    System.out.println("  >>  Enter Student email");
+                    result.setEmail(b.next());
+                    System.out.println("  >>  Enter Student math score");
+                    result.setMath(a.nextInt());
+                    System.out.println("  >>  Enter Student english score");
+                    result.setEnglish(a.nextInt());
+                    System.out.println("  >>  Enter Student chemistry");
+                    result.setChemistry(a.nextInt());
+                    System.out.println("  >>  Enter Student physics score");
+                    result.setPhysics(a.nextInt());
+                    resultMethods.enterResult(result);
                     break;
                 case 2:
-                    System.out.println("Enter ");
+                    System.out.println("  >>  Enter student email");
+                    result.setEmail(b.next());
+                    resultMethods.viewStudentResult(result.getEmail());
                     break;
                 case 3:
                     System.out.println("  >>  Goodbye");
