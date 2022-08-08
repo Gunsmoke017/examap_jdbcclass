@@ -71,8 +71,9 @@ public class StudentMethods implements IStudentMethods {
                     } else {
                         status = "  >>  Update completed";
                     }
-                }
+                } else{
                 status = "  >>  Record not found";
+                }
             } catch (SQLException e){
                 e.printStackTrace();
             }
@@ -104,7 +105,7 @@ public class StudentMethods implements IStudentMethods {
     }
 
     @Override
-    public String deleteStudent(String email,String confirm) {
+    public String deleteStudent(String email, String confirm) {
         String status ="";
 
         int upd =0;
