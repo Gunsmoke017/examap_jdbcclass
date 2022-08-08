@@ -28,7 +28,7 @@ public class ResultMethods implements IResultMethods {
 
                     upd = pr.executeUpdate();
 
-                    if(upd ==0){
+                    if(upd == 0){
                         System.out.println("Not entered");
                         return  false;
                     } else{
@@ -43,6 +43,28 @@ public class ResultMethods implements IResultMethods {
 
     @Override
     public String viewStudentResult(String email) {
-        return null;
+        Result result = new Result();
+        String VIEW_RESULT = "SELECT * FROM result WHERE email = ?";
+        if (examAppConnection.connectToDatabase()){
+            try{
+                pr = examAppConnection.getConnections().prepareStatement(VIEW_RESULT);
+                pr.setString(1,email);
+                res = pr.executeQuery();
+
+                if(res.next()){
+                    result.setEmail(res.getString("email"));
+                    result.setMath((res.getInt("math")));
+                    result.setEnglish((res.getInt("english")));
+                    result.setChemistry((res.getInt("chemistry")));
+                    result.setPhysics((res.getInt("physics")));
+                    result.setTotal((res.getInt("total")));
+                }
+            } catch(SQLException e){
+                e.printStackTrace();
+
+            }        } else {
+            System.out.println("no connectionexception");
+        }
+        return result.toString();
     }
 }
