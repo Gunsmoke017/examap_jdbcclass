@@ -24,7 +24,7 @@ public class ResultMethods implements IResultMethods {
                     pr.setInt(3,result.getEnglish());
                     pr.setInt(4,result.getChemistry());
                     pr.setInt(5,result.getPhysics());
-                    pr.setInt(6,result.getTotal());
+                    pr.setInt(6,(result.getMath()+result.getEnglish()+result.getChemistry()+result.getPhysics()));
 
                     upd = pr.executeUpdate();
 
@@ -38,7 +38,7 @@ public class ResultMethods implements IResultMethods {
                     e.printStackTrace();
                 }
             }
-        return false;
+        return true;
     }
 
     @Override

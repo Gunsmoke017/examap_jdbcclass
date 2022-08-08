@@ -1,6 +1,8 @@
 package view;
 
+import interfaceimplements.ResultMethods;
 import interfaceimplements.StudentMethods;
+import model.Result;
 import model.Student;
 
 import java.util.Scanner;
@@ -11,7 +13,12 @@ public class View {
     int choice =0;
 
     StudentMethods studentMethods = new StudentMethods();
+    ResultMethods resultMethods = new ResultMethods();
+
     Student student = new Student();
+    Result result = new Result();
+
+
     public void menu(){
         do {
         System.out.println("==================================================");
@@ -19,7 +26,7 @@ public class View {
         System.out.println("==================================================");
         System.out.println();
         System.out.println("  >>  Enter an operation  <<   \n >> (1) Register student\n >> (2) View student by email" +
-                "\n >> (3) Update student by email\n >> (4) Delete student by email\n >> (5) Exit");
+                "\n >> (3) Update student by email\n >> (4) Delete student by email\n >> (5) Back to main menu");
         choice = a.nextInt();
         switch (choice){
             case 1:
@@ -62,5 +69,58 @@ public class View {
                 System.out.println("  >>  Enter valid option");
         }
         } while(choice != 5);
+    }
+
+    public void resultMethods(){
+        int choice=0;
+        do {
+            System.out.println("==================================================");
+            System.out.println("                    >> Student <<                 ");
+            System.out.println("==================================================");
+            System.out.println();
+            System.out.println("  >>  Enter a selection: ");
+            System.out.println("  >>  (1) Enter result\n  >>  (2) View result\n  >>  (3) Back to main menu");
+            switch (choice){
+                case 1:
+
+                    break;
+                case 2:
+                    System.out.println("Enter ");
+                    break;
+                case 3:
+                    System.out.println("  >>  Goodbye");
+                    break;
+                default:
+                    System.out.println("Enter valid choice");
+            }
+
+        } while(choice != 3);
+    }
+
+    public void menuHolder(){
+        int choice;
+        do{
+            System.out.println("==================================================");
+            System.out.println("                    >> Student <<                 ");
+            System.out.println("==================================================");
+            System.out.println();
+            System.out.println("  >>  Enter a selection: ");
+            System.out.println("  >>  (1) Students\n  >>  (2) Results\n  >>  (3) Exit");
+            choice = b.nextInt();
+            switch (choice){
+                case 1:
+                    menu();
+                    break;
+                case 2:
+                    resultMethods();
+                    break;
+                case 3:
+                    System.out.println("  >>  Goodbye");
+                    break;
+                default:
+                    System.out.println("Enter valid choice");
+            }
+
+        } while (choice !=3);
     }
 }
