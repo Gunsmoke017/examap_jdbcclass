@@ -75,11 +75,12 @@ public class View {
         int choice=0;
         do {
             System.out.println("==================================================");
-            System.out.println("                    >> Student <<                 ");
+            System.out.println("                    >> Results <<                 ");
             System.out.println("==================================================");
             System.out.println();
             System.out.println("  >>  Enter a selection: ");
             System.out.println("  >>  (1) Enter result\n  >>  (2) View result\n  >>  (3) Back to main menu");
+            choice = a.nextInt();
             switch (choice){
                 case 1:
                     System.out.println("  >>  Enter Student email");
@@ -97,7 +98,7 @@ public class View {
                 case 2:
                     System.out.println("  >>  Enter student email");
                     result.setEmail(b.next());
-                    resultMethods.viewStudentResult(result.getEmail());
+                    System.out.println(resultMethods.viewStudentResult(result.getEmail()));
                     break;
                 case 3:
                     System.out.println("  >>  Goodbye");
@@ -113,7 +114,7 @@ public class View {
         int choice;
         do{
             System.out.println("==================================================");
-            System.out.println("                    >> Student <<                 ");
+            System.out.println("               >> Exam application <<             ");
             System.out.println("==================================================");
             System.out.println();
             System.out.println("  >>  Enter a selection: ");

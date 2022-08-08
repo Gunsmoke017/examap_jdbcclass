@@ -22,13 +22,13 @@ public class Result {
 
     @Override
     public String toString() {
-        return "Result{" +
-                "email='" + email + '\'' +
-                ", Math=" + Math +
-                ", English=" + English +
-                ", Chemistry=" + Chemistry +
-                ", Physics=" + Physics +
-                ", total=" + total +
+        return "Result{" + "\n"+
+                "email= '" + email + '\'' +"\n"+
+                ", Math= " + Math +"\n"+
+                ", English= " + English +"\n"+
+                ", Chemistry= " + Chemistry +"\n"+
+                ", Physics= " + Physics +"\n"+
+                ", total= " + total +"\n"+
                 '}';
     }
 
